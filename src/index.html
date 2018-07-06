@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="common invisible" id=step1>
+                <dl>
+                    <dt>
+                        <label for="devSelect">Выберите устройство и выполните вход:</label>
+                    </dt>
+                    <dd>
+                        <select id=devSelect>
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label for="pincode">PIN-код:</label>
+                    </dt>
+                    <dd>
+                        <input id="pincode" type="text" value="12345678" />
+                        <button id="loginbtn">Войти</button>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label for="keySelect">Ключи на устройстве: </label>
+                    </dt>
+                    <dd>
+                        <select id="keySelect">
+                        </select>
+                    </dd>
+                </dl>
+            </div>
+            <div class="section invisible" id=step2>
+                <ul>
+                    <li>
+                        <a href="#section-0">
+                            <span>Генерация ключа</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-1">
+                            <span>Генерация запроса PKCS10</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-2">
+                            <span>Импорт сертификата</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-3">
+                            <span>Справочная информация</span>
+                        </a>
+                    </li>
+                </ul>
+                <div id="section-0">
+                    <div class="group">
+                        <ul>
+                            <li>
+                                <h2>Генерация ключа</h2>
+                            </li>
+                            <li>
+                                <input type="text" maxlength="250" id="ckaidlabel" name="ckaidlabel" />
+                                <label for="ckaidlabel"> Id ключа. Используйте символы, допустимые в base64.</label>
+                            </li>
+                            <li>
+                                <input type="text" maxlength="250" id="keylabel" name="keylabel" />
+                                <label for="keylabel"> Маркер ключа.</label>
+                            </li>
+                            <li>
+                                <button id=genkey>Создать ключ</button>
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="section-1">
+                    <div class="group">
+
+                        <ul>
+                            <li>
+                                <h2>Генерация запроса</h2>
+                            </li>
+                            <li>
+                                SUBJECT
+                                <br>
+                                <textarea id=iCRS class="text-output" rows="7">T0lELjIuNS40LjQyPSLQldC70LXQvdCwINCT0LXQvdC90LDQtNC40LXQstC90LAiOyBPSUQuMS4y LjY0My4xMDAuMz0wNjA3NjEzMzI0MDsgT0lELjEuMi42NDMuMTAwLjE9MTA5Nzc0NjI5Mzg4Njsg
+                                    T0lELjEuMi44NDAuMTEzNTQ5LjEuOS4xPWFiZWx0Y2V2YUBnYXJhbnQucnU7IE9JRC4yLjUuNC42 PVJVOyBPSUQuMi41LjQuOD0iNzcg0JzQvtGB0LrQstCwIjsgT0lELjIuNS40Ljc90LMu0JzQvtGB
+                                    0LrQstCwOyBPSUQuMi41LjQuMTA9ItCe0J7QniAn0K3Qu9C10LrRgtGA0L7QvdC90YvQuSDRjdC6 0YHQv9GA0LXRgdGBJyI7IE9JRC4yLjUuNC4xMT0wOyBPSUQuMS4yLjY0My4zLjEzMS4xLjE9MDA3
+                                    NzI5NjMzMTMxOyBPSUQuMi41LjQuMz0i0JDQsdC10LvRjNGG0LXQstCwINCV0LvQtdC90LAg0JPQ tdC90L3QsNC00LjQtdCy0L3QsCI7IE9JRC4yLjUuNC4xMj0i0YHQv9C10YbQuNCw0LvQuNGB0YIg
+                                    0JDQtNC80LjQvdC40YHRgtGA0LDRgtC40LLQvdC+LdGE0LjQvdCw0L3RgdC+0LLQvtCz0L4g0YPQ v9GA0LDQstC70LXQvdC40Y8iOyBPSUQuMi41LjQuND3QkNCx0LXQu9GM0YbQtdCy0LA7IE9JRC4y
+                                    LjUuNC45PSLQm9C10L3QuNC90YHQutC40LUg0LPQvtGA0YssIDEsIDc3IjsgT0lELjEuMi44NDAu MTEzNTQ5LjEuOS4yPSJJTk49NzcyOTYzMzEzMS9LUFA9NzcyOTAxMDAxL09HUk49MTA5Nzc0NjI5
+                                    Mzg4NiI=
+                                </textarea>
+                            </li>
+                            <li>
+                                EKU
+                                <br>
+                                <textarea id=iCRE class="text-output" rows="7">MS4zLjYuMS41LjUuNy4zLjQsMS4yLjY0My42LjcsMS4yLjY0My42LjMuMS4xLDEuMi42NDMuMi4y LjM0LjYsMS4zLjYuMS40LjEuNDA4NzAuMS4xLjEsMS4yLjY0My42LjMuMS4yLjEsMS4yLjY0My4z
+                                    LjEzMC4yLjQuNi4xLDEuMi42NDMuMy4xMzAuMy4xMiwxLjMuNi4xLjUuNS43LjMuMiwxLjIuNjQz LjEwMC4xMTMuMSwxLjIuNjQzLjYuMy4xLjMuMSwxLjIuNjQzLjYuMywxLjIuNjQzLjMuOC4xMDAu
+                                    MS40MiwxLjIuNjQzLjYuMy4xLjQuMSwxLjIuNjQzLjYuMy4xLjQuMywxLjIuNjQzLjYuMy4xLjQu MiwxLjIuNjQzLjMuMTMwLjIuNi4yLjQ=
+                                </textarea>
+                            </li>
+                            <li>
+                                <button id=generate>Создать запрос</button>
+                            </li>
+                            <li>
+                                RESULT
+                                <br>
+                                <textarea id=iCRR class="text-output" rows="7"></textarea>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="section-2">
+                    <div id="CreatePkcs10" class="group">
+                        <ul>
+                            <li>
+                                <h2>Импорт сертификата</h2>
+                            </li>
+                            <li>
+                                <textarea id=certForImport class="text-output" rows="7"></textarea>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="radio-input" name="certificate-category" value="user" checked="checked">Пользовательский</label>
+                                <br>
+                                <label>
+                                    <input type="radio" class="radio-input" name="certificate-category" value="ca">Корневой</label>
+                                <br>
+                                <label>
+                                    <input type="radio" class="radio-input" name="certificate-category" value="other">Другой</label>
+                            </li>
+                            <li>
+                                <button id=import>Импортировать</button>
+                                <button id=parse>Просмотреть в
+                                    <br />печатном виде</button>
+                                <button id=save>Сохранить в
+                                    <br />печатном виде</button>
+                            </li>
+                            <li>
+                                <div id=certPrint>
+
+                                </div>
+                            </li>
+                            <li>
+
+                            </li>
+                    </div>
+                </div>
+                <div id="section-3">
+                    <div class="group">
+
+                        <ul>
+                            <li>
+                                <h2>Справочная информация</h2>
+                            </li>
+                            <li>
+                                Здесь можно описать что нужно делать пользователю
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    <div class="dummy">
+        <div class="bottom-bar-container">
+            <div class="console-container">
+                <div class="console" id=console></div>
+            </div>
+        </div>
+</body>
+<script src="js/vendor/es6-promise.auto.js"></script>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/jqui.js"></script>
+<script src="js/vendor/rutoken.min.js"></script>
+
+
+
+<script src="js/file.js"></script>
+<script src="js/decode.js"></script>
+<script src="js/oids.js"></script>
+<script src="js/token.js"></script>
+<script src="js/app.js"></script>
+
+</html>

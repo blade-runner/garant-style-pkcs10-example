@@ -1,0 +1,20 @@
+{
+  "name": "garant-rutoken-test-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@aktiv-scm:it_web/garant-rutoken-test-page.git"
+  },
+  "keywords": [],
+  "author": "Vasilyev Arkadiy vasiliev@guardant.ru",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+
+  }
+}
